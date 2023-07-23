@@ -22,10 +22,10 @@ const BuildingModel = () => {
 const BelleModel = () => {
     const gltf = useLoader(GLTFLoader, '/bgmi.glb');
     const model = useRef();
-const { pos, rot } = useControls("belle",{
-       pos: { value: [0, 0, 0], step: 0.1 },
-       rot: { value: [0.2, -0.4, 0.1], step: 0.1 },
-      });
+// const { pos, rot } = useControls("belle",{
+//        pos: { value: [0, 0, 0], step: 0.1 },
+//        rot: { value: [0.2, -0.4, 0.1], step: 0.1 },
+//       });
     
     return(
         <mesh ref={model} position={[1.2,-1.3,3.6]} rotation={[0.2, -0.4, 0.1]}>
