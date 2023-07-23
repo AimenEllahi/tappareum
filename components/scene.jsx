@@ -28,7 +28,7 @@ const { pos, rot } = useControls("belle",{
       });
     
     return(
-        <mesh ref={model} position={pos} rotation={[0, -0.6, 0]}>
+        <mesh ref={model} position={[1.2,-1.3,3.6]} rotation={[0.2, -0.4, 0.1]}>
         <primitive object={gltf.scene} scale={[1, 1, 1]} />
         </mesh>
     )
