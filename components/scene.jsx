@@ -28,7 +28,7 @@ const BelleModel = () => {
 //       });
     
     return(
-        <mesh ref={model} position={[1.2,-1.3,3.6]} rotation={[0.2, -0.4, 0.1]}>
+        <mesh ref={model} position={[1.2,-1.2999999999999998,3.6000000000000023]} rotation={[0, -0.6, 0]}>
         <primitive object={gltf.scene} scale={[1, 1, 1]} />
         </mesh>
     )
@@ -39,7 +39,7 @@ const Clounds = () => {
         const clouds = [
             { pos: [0, -4.8, 0], rot: [0.2, 0, 0], color: 'white' },
             { pos: [4, -4.8, 2], rot: [0.1, 0.2, 0], color: 'pink' },
-            { pos: [4, 2.8, 5], rot: [0.1, 0.2, 0], color: 'pink' },
+            { pos: [4, 2.8, 7], rot: [0.1, 0.2, 0], color: 'pink' },
             { pos: [3, -4.8, 0], rot: [0.1, 0.2, 0], color: 'white' },
             { pos: [-4.5, -4.8, 2], rot: [0.1, 0.2, 0], color: 'pink' },
    
