@@ -10,13 +10,19 @@ const DynamicNavbar = dynamic(() => import('@/components/navbar'),
   {}
 );
 
+const DynamicFooter = dynamic(() => import('@/components/footer'),
+  {}
+);
+
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
       <div>
-        {/* <DynamicNavbar /> */}
+        <DynamicNavbar /> 
         <DynamicScene />
+        <DynamicFooter />
       </div>
       
   )
