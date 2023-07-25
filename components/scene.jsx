@@ -1,23 +1,31 @@
-import React, { useRef } from 'react';
+import React, { useRef, Suspense } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { useControls } from 'leva';
-import { Cloud, Sky, Html, Stars } from '@react-three/drei';
-import { Environment} from '@react-three/drei'
+import { Cloud, Sky, Html, Stars, useProgress, Environment, Float, PresentationControls} from '@react-three/drei';
+import {Sifi_island} from './Sifi_island'
+import { La_night_city } from './La_night_city';
 // import { LayerMaterial, Color, Depth } from 'lamina'
 import * as THREE from 'three'
 
+const Loader = () => {
+    const { progress } = useProgress();
+    return <Html className='text-xl' center>{progress} %</Html>;
+    };
+    
+
+
 const BuildingModel = () => {
-    const gltf = useLoader(GLTFLoader, '/new_york_city._manhattan.glb');
+    const gltf = useLoader(GLTFLoader, '/la_night_city.glb');
     const model = useRef();
     const { pos, rot } = useControls({
-        pos: { value: [0.4, 0.4, 1.9], step: 0.1 },
-        rot: { value: [0, 0.2, 0], step: 0.1 },
+        pos: { value: [0.5, -1, 0.1  ], step: 0.1 },
+        rot: { value: [0, -0.5, 0], step: 0.1 },
       });
     
     return(
         <mesh ref={model} position={pos} rotation={rot}>
-        <primitive object={gltf.scene} scale={[.5, .5, .5]} />
+        <primitive object={gltf.scene} scale={0.4} />
         </mesh>
     )
 }
@@ -31,7 +39,7 @@ const MovingLight = () => {
         // Update the light's position here
         // You can change the light's position based on time or any other parameter
         const time = state.clock.elapsedTime;
-        const radius = 15;
+        const radius = 25;
         const xPos = radius * Math.cos(time * 0.5);
         const zPos = radius * Math.sin(time * 0.5);
         lightRef.current.position.set(xPos, 10, zPos);
@@ -48,13 +56,13 @@ const BelleModel = () => {
     const gltf = useLoader(GLTFLoader, '/sf_girl.glb');
     const model = useRef();
 const { pos, rot } = useControls("belle",{
-       pos: { value: [0.3, -0.28, 4.7], step: 0.1 },
+       pos: { value: [0.2, -0.28, 4.75], step: 0.1 },
        rot: { value: [0, -0.8, 0], step: 0.1 },
       });
     
     return(
-        <mesh ref={model} position={pos} rotation={rot}>
-        <primitive object={gltf.scene} scale={[.12, .12, .12]} />
+        <mesh ref={model} position={[0.2, -0.28, 4.75]} rotation={[0, -0.8, 0]}>
+        <primitive object={gltf.scene} scale={.12} />
         </mesh>
     )
 }
@@ -133,40 +141,48 @@ const Skybox = () => {
 function scene() {
   return (
     <div className="h-screen w-screen relative" >
-        <Canvas >
+        <Canvas camera={{fov: 75}}>
             <ambientLight />
             <pointLight position={[0, 10, 0]} intensity={1} color={'white'} />
             <pointLight position={[0, 10, 0]} intensity={1} color={'black'} />
-            <BuildingModel />
+            <Suspense fallback={<Loader />}>
+            <La_night_city />
+            {/* <Sifi_island /> */}
             <BelleModel /> 
             <Clounds />
+            {/* <CameraShake yawFrequency={0.1} pitchFrequency={0.1} rollFrequency={0.1} intensity={0.5} decay={true} /> */}
             <MovingLight />
             <Stars
             count={5000} // Number of stars (default=5000)
             radius={100} // Size of the star field (default=100)
             depth={50} // Depth of the star field (default=50)
-            factor={2} // Density factor (default=4)
+            factor={3} // Density factor (default=4)
             saturation={1.5} // Saturation level of stars (default=1.5)
             fade // Enable fading effect (default=true)
             />
             <Skybox />
-            <Html center>
+            <Html center style={{ marginTop: "110px" }}>
             <div className=' flex flex-col justify-between items-center'>
 
             <div className="text-white text-3xl flex flex-col justify-between items-center" style={{
-                height: "20vh",
-                width: "22vw"
+                height: "14vh",
+                width: "32vw"
             }}>
-                <span className="text-center">WELCOME TO THE WORLD OF TAPPAREUM</span>
+                <span className="text-center text-4xl font-bold">WELCOME TO THE WORLD OF TAPPAREUM</span>
                
             </div>
-            <button className="bg-[#D7C0AE] text-white py-2 px-4 rounded text-center">
+            <button className="bg-white text-gray-600 py-2 px-4 rounded text-center">
                 <span className='pb-4 text-l' >Explore</span>
             </button>
             </div>
             </Html>
+            </Suspense>
           
         </Canvas>
+        <div
+        className="absolute top-0 left-0 w-full h-full bg-gray-700 opacity-20"
+        style={{ pointerEvents: "none" }}
+      ></div>
     </div>
   )
 }
