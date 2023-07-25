@@ -3,7 +3,7 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { useControls } from 'leva';
 import { Cloud, Sky, Html, Stars } from '@react-three/drei';
-// import { PerformanceMonitor, AccumulativeShadows, RandomizedLight, Environment, Lightformer, Float, useGLTF } from '@react-three/drei'
+import { Environment} from '@react-three/drei'
 // import { LayerMaterial, Color, Depth } from 'lamina'
 import * as THREE from 'three'
 
