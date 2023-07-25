@@ -7,46 +7,135 @@ Source: https://sketchfab.com/3d-models/sifi-island-e7b79179d68247a9a12c4a01caab
 Title: sifi island
 */
 
-import React, { useRef } from 'react'
-import { useGLTF, PresentationControls, useAnimations } from '@react-three/drei'
-import { useControls } from 'leva';
+import React, { useRef } from "react";
+import {
+  useGLTF,
+  PresentationControls,
+  useAnimations,
+} from "@react-three/drei";
+import { useControls } from "leva";
 export function Sifi_island(props) {
-  const { nodes, materials, animations } = useGLTF('/sifi_island-transformed.glb')
+  const { nodes, materials, animations } = useGLTF(
+    "/sifi_island-transformed.glb"
+  );
 
   console.log(animations);
 
-  const { pos, rot} = useControls({
+  const { pos, rot } = useControls({
     pos: { value: [-3.8, -5.9, -3.7], step: 0.1 },
     rot: { value: [0, 0, 0], step: 0.1 },
   });
 
-  
-
   return (
-    <group position={pos} rotation={rot} scale={1.5}  {...props} dispose={null}>
-      <mesh geometry={nodes.Object_4.geometry} material={materials.blue} position={[2.3, 0.349, 6.298]} />
-      <mesh geometry={nodes.Object_5.geometry} material={materials.metal} position={[2.3, 0.349, 6.298]} />
-      <mesh geometry={nodes.Object_6.geometry} material={materials.black} position={[2.3, 0.349, 6.298]} />
-      <mesh geometry={nodes.Object_7.geometry} material={materials.redglow} position={[2.3, 0.349, 6.298]} />
-      <mesh geometry={nodes.Object_8.geometry} material={materials.green} position={[2.3, 0.349, 6.298]} />
-      <mesh geometry={nodes.Object_9.geometry} material={materials.black_glossy} position={[2.3, 0.349, 6.298]} />
-      <mesh geometry={nodes.Object_10.geometry} material={materials.bark_bluew} position={[2.3, 0.349, 6.298]} />
-      <mesh geometry={nodes.Object_11.geometry} material={materials.yellowglow} position={[2.3, 0.349, 6.298]} />
-      <mesh geometry={nodes.Object_13.geometry} material={materials['Material.car9']} position={[-1.975, 0.919, 5.754]} />
-      <mesh geometry={nodes.Object_14.geometry} material={materials['Material.009']} position={[-1.975, 0.919, 5.754]} />
-      <mesh geometry={nodes.Object_16.geometry} material={materials.green} position={[-2.035, 1.006, -4.923]} />
-      <mesh geometry={nodes.Object_45.geometry} material={materials['Material.007']} position={[4.061, 2.239, 0.183]} />
-      <mesh geometry={nodes.Object_63.geometry} material={materials.Material} position={[2.224, 5.16, -1.556]} />
-      <mesh geometry={nodes.Object_64.geometry} material={materials['Material.001']} position={[2.224, 5.16, -1.556]} />
-      <mesh geometry={nodes.Object_65.geometry} material={materials['Material.002']} position={[2.224, 5.16, -1.556]} />
-      <mesh geometry={nodes.Object_66.geometry} material={materials.yellowglow} position={[2.224, 5.16, -1.556]} />
-      <mesh geometry={nodes.Object_67.geometry} material={materials.redglow} position={[2.224, 5.16, -1.556]} />
-      <mesh geometry={nodes.Object_71.geometry} material={materials.Material} position={[1.838, 2.584, -2.027]} />
-      <mesh geometry={nodes.Object_72.geometry} material={materials['Material.001']} position={[1.838, 2.584, -2.027]} />
-      <mesh geometry={nodes.Object_73.geometry} material={materials['Material.002']} position={[1.838, 2.584, -2.027]} />
-      <mesh geometry={nodes.Object_74.geometry} material={materials['Material.003']} position={[1.838, 2.584, -2.027]} />
+    <group position={pos} rotation={rot} scale={1.5} {...props} dispose={null}>
+      <mesh
+        geometry={nodes.Object_4.geometry}
+        material={materials.blue}
+        position={[2.3, 0.349, 6.298]}
+        
+      />
+      <mesh
+        geometry={nodes.Object_5.geometry}
+        material={materials.metal}
+        position={[2.3, 0.349, 6.298]}
+      />
+      <mesh
+        geometry={nodes.Object_6.geometry}
+        material={materials.black}
+        position={[2.3, 0.349, 6.298]}
+      />
+      <mesh
+        geometry={nodes.Object_7.geometry}
+        material={materials.redglow}
+        position={[2.3, 0.349, 6.298]}
+      />
+      <mesh
+        geometry={nodes.Object_8.geometry}
+        material={materials.green}
+        position={[2.3, 0.349, 6.298]}
+      />
+      <mesh
+        geometry={nodes.Object_9.geometry}
+        material={materials.black_glossy}
+        position={[2.3, 0.349, 6.298]}
+      />
+      <mesh
+        geometry={nodes.Object_10.geometry}
+        material={materials.bark_bluew}
+        position={[2.3, 0.349, 6.298]}
+      />
+      <mesh
+        geometry={nodes.Object_11.geometry}
+        material={materials.yellowglow}
+        position={[2.3, 0.349, 6.298]}
+      />
+      <mesh
+        geometry={nodes.Object_13.geometry}
+        material={materials["Material.car9"]}
+        position={[-1.975, 0.919, 5.754]}
+      />
+      <mesh
+        geometry={nodes.Object_14.geometry}
+        material={materials["Material.009"]}
+        position={[-1.975, 0.919, 5.754]}
+      />
+      <mesh
+        geometry={nodes.Object_16.geometry}
+        material={materials.green}
+        position={[-2.035, 1.006, -4.923]}
+      />
+      <mesh
+        geometry={nodes.Object_45.geometry}
+        material={materials["Material.007"]}
+        position={[4.061, 2.239, 0.183]}
+      />
+      <mesh
+        geometry={nodes.Object_63.geometry}
+        material={materials.Material}
+        position={[2.224, 5.16, -1.556]}
+      />
+      <mesh
+        geometry={nodes.Object_64.geometry}
+        material={materials["Material.001"]}
+        position={[2.224, 5.16, -1.556]}
+      />
+      <mesh
+        geometry={nodes.Object_65.geometry}
+        material={materials["Material.002"]}
+        position={[2.224, 5.16, -1.556]}
+      />
+      <mesh
+        geometry={nodes.Object_66.geometry}
+        material={materials.yellowglow}
+        position={[2.224, 5.16, -1.556]}
+      />
+      <mesh
+        geometry={nodes.Object_67.geometry}
+        material={materials.redglow}
+        position={[2.224, 5.16, -1.556]}
+      />
+      <mesh
+        geometry={nodes.Object_71.geometry}
+        material={materials.Material}
+        position={[1.838, 2.584, -2.027]}
+      />
+      <mesh
+        geometry={nodes.Object_72.geometry}
+        material={materials["Material.001"]}
+        position={[1.838, 2.584, -2.027]}
+      />
+      <mesh
+        geometry={nodes.Object_73.geometry}
+        material={materials["Material.002"]}
+        position={[1.838, 2.584, -2.027]}
+      />
+      <mesh
+        geometry={nodes.Object_74.geometry}
+        material={materials["Material.003"]}
+        position={[1.838, 2.584, -2.027]}
+      />
     </group>
-  )
+  );
 }
 
-useGLTF.preload('/sifi_island-transformed.glb')
+useGLTF.preload("/sifi_island-transformed.glb");
