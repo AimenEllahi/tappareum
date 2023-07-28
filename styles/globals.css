@@ -36,5 +36,5 @@ body {
     )
     rgb(var(--background-start-rgb));
   /* Use the "Avenir Next" font-family for the body */
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair', serif;
 }
