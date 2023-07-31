@@ -8,6 +8,10 @@ function Navbar() {
       className="fixed top-0 left-0 w-full h-16 bg-transparent text-white flex justify-between items-center z-50 py-4 px-8"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+       style={{
+        height: isHovered ? '80px' : '16px', // Increase the height on hover
+        transition: 'height 0.3s', // Add a smooth transition effect
+      }}
     >
       <h1
         className="text-2xl font-bold"
