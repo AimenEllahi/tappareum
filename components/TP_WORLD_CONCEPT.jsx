@@ -16,9 +16,7 @@ export function Model(props) {
   const groupRef = useRef();
 
   const texture = new THREE.TextureLoader().load("/blue.png");
-
  
-
   useEffect(() => {
     // Animation duration in seconds
     const duration = 2;
@@ -39,6 +37,7 @@ export function Model(props) {
     gsap.to(groupRef.current.position, { x: targetPos.x, y: targetPos.y, z: targetPos.z, duration });
     gsap.to(groupRef.current.rotation, { x: targetRot.x, y: targetRot.y, z: targetRot.z, duration });
   }, []);
+
 
   // const { pos, rot } = useControls("buildings", {
   //   pos: {
