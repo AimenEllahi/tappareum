@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {BiSolidUpArrow} from 'react-icons/bi';
 
 function Footer() {
   const [isHovered, setIsHovered] = useState(false);
@@ -6,7 +7,7 @@ function Footer() {
   return (
     <footer
       className="fixed bottom-0 left-0 w-full h-16 bg-transparent text-white flex justify-between items-center z-50"
-      onMouseEnter={() => setIsHovered(true)}
+     
       onMouseLeave={() => setIsHovered(false)}
       style={{
         height: isHovered ? '100px' : '16px', // Increase the height on hover
@@ -28,6 +29,14 @@ function Footer() {
       >
         &copy; {new Date().getFullYear()} Your Company Name. All rights reserved.
       </div>
+      <BiSolidUpArrow 
+         size={20} 
+         className="mr-2 mb-2 text-white text-4xl cursor-pointer fixed bottom-0 right-0" 
+         onMouseEnter={() => setIsHovered(true)}
+         style={{
+          opacity: isHovered ? '0' : '1',
+         }}
+         />
     </footer>
   );
 }

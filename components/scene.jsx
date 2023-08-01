@@ -17,6 +17,7 @@ import {
 import * as THREE from "three";
 import { Model } from "./TP_WORLD_CONCEPT";
 import { gsap } from "gsap";
+import Buttons from "./buttons";
 
 
 const Loader = () => {
@@ -48,7 +49,7 @@ const MovingLight = () => {
 };
 
 const BelleModel = () => {
-  const gltf = useLoader(GLTFLoader, "/sf_girl.glb");
+  const gltf = useLoader(GLTFLoader, "/Models/sf_girl.glb");
   const model = useRef();
   const mixer = new THREE.AnimationMixer(gltf.scene);
   const clips = gltf.animations;
@@ -144,12 +145,13 @@ const Skybox = () => {
 function scene() {
   const welcomeTextRef = useRef();
 
+
   useEffect(() => {
     // Create the fade-out animation for the welcome text
     const fadeOutAnimation = gsap.to(welcomeTextRef.current, {
       duration: 1, 
       opacity: 0, 
-      delay: 3.5, 
+      delay: 5.5, 
       onComplete: () => {
         
         welcomeTextRef.current.style.display = "none";
@@ -171,20 +173,12 @@ function scene() {
           <BelleModel />
           <Clounds />
           <MovingLight />
-          {/* <Float
-            speed={1} // Animation speed, defaults to 1
-            rotationIntensity={0.2} // XYZ rotation intensity, defaults to 1
-            floatIntensity={1} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
-            floatingRange={[-0.0005, 0.0005]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
-          > */}
-            <Model />
-          {/* </Float> */}
-
+          <Model />
           <Skybox />
         </Suspense>
-        {/* <OrbitControls enablePan={false} zoomSpeed={0.5} enableRotate={false}/> */}
+        
       </Canvas>
-
+      <Buttons />
       <div ref={welcomeTextRef} className='text-white absolute font-playfair flex flex-col justify-between items-center top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]'>
         <span className='text-center w-[50vw] mb-5 text-6xl font-bold'>
           WELCOME TO THE WORLD OF TAPPAREUM
