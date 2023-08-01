@@ -54,7 +54,7 @@ export function Model(props) {
       <PresentationControls  
             enabled={true}
             polar={[0, 0]}
-            azimuth={[-0.25, 0.25]}>
+        >
         <group position={[-0.089, 0.081, 0]}>
           <mesh
             geometry={nodes["Land-green"].geometry}
