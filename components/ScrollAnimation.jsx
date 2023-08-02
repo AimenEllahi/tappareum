@@ -3,12 +3,13 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect } from "react";
 import { useControls } from "leva";
+
 gsap.registerPlugin(ScrollTrigger);
 
 function ScrollAnimation() {
   const { camera } = useThree();
 
-  const { position, rotation } = useControls("camera",{
+  const { position, rotation } = useControls("camera", {
     position: {
       value: [0, 2.55, 0.55],
       step: 0.01,
@@ -19,7 +20,6 @@ function ScrollAnimation() {
     },
   });
 
-
   useEffect(() => {
     let t1 = gsap.timeline({});
     const scrollDirection = { value: 0 };
@@ -27,14 +27,11 @@ function ScrollAnimation() {
       x: 0,
       y: 0,
       z: 5,
-    })
-      .to(camera.position, {
-        z: 4.5,
-        y: 2,
-        duration: 5,
-        
-      })
-
+    }).to(camera.position, {
+      z: 4.5,
+      y: 2,
+      duration: 5,
+    });
 
     ScrollTrigger.create({
       animation: t1,
