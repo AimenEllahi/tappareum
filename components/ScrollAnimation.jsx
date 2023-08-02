@@ -9,16 +9,16 @@ gsap.registerPlugin(ScrollTrigger);
 function ScrollAnimation() {
   const { camera } = useThree();
 
-  const { position, rotation } = useControls("camera", {
-    position: {
-      value: [0, 2.55, 0.55],
-      step: 0.01,
-    },
-    rotation: {
-      value: [0, 0, 0],
-      step: 0.5,
-    },
-  });
+  // const { position, rotation } = useControls("camera", {
+  //   position: {
+  //     value: [0, 2.55, 0.55],
+  //     step: 0.01,
+  //   },
+  //   rotation: {
+  //     value: [0, 0, 0],
+  //     step: 0.5,
+  //   },
+  // });
 
   useEffect(() => {
     let t1 = gsap.timeline({});
@@ -29,7 +29,7 @@ function ScrollAnimation() {
       z: 5,
     }).to(camera.position, {
       z: 4.5,
-      y: 2,
+      y: 0,
       duration: 5,
     });
 

@@ -161,8 +161,8 @@ function scene() {
     };
   }, []);
   return (
-    <div className='h-screen w-screen relative'>
-      <div className='fixed w-screen h-screen top-0'>
+    <div className='h-screen w-[80vw] relative'>
+      <div className='fixed w-screen h-screen top-0 overflow-x-hidden'>
         <Canvas camera={{ fov: 75 }}>
           <Environment preset='sunset' />
           <pointLight position={[0, 0, 0]} intensity={1} />
