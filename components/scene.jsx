@@ -18,6 +18,7 @@ import * as THREE from "three";
 import { Model } from "./TP_WORLD_CONCEPT";
 import { gsap } from "gsap";
 import Buttons from "./buttons";
+import ScrollAnimation from "./ScrollAnimation";
 
 
 const Loader = () => {
@@ -176,7 +177,7 @@ function scene() {
           <Model />
           <Skybox />
         </Suspense>
-        
+        <ScrollAnimation />
       </Canvas>
       <Buttons />
       <div ref={welcomeTextRef} className='text-white absolute font-playfair flex flex-col justify-between items-center top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]'>
@@ -187,6 +188,12 @@ function scene() {
           Explore
         </button> */}
       </div>
+      <section data-scroll-section style={{ height: "1vh" }}></section>
+      <section
+        className='trigger'
+        data-scroll-section
+        style={{ height: "20vh" }}
+      ></section>
     </div>
   );
 }
