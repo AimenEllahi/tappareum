@@ -161,34 +161,33 @@ function scene() {
     };
   }, []);
   return (
-    <div className='h-screen w-[80vw] relative'>
-      <div className='fixed w-screen h-screen top-0 overflow-x-hidden'>
-        <Canvas camera={{ fov: 75 }}>
-          <Environment preset='sunset' />
-          <pointLight position={[0, 0, 0]} intensity={1} />
+    <>
+      <div className='h-screen w-[80vw] z-30 relative'>
+        <div className='fixed w-screen h-screen  top-0 overflow-x-hidden'>
+          <Canvas camera={{ fov: 75 }}>
+            <Environment preset='sunset' />
+            <pointLight position={[0, 0, 0]} intensity={1} />
 
-          <Suspense fallback={<Loader />}>
-            <BelleModel />
-            <Clounds />
-            <MovingLight />
-            <Model />
-            <Skybox />
-            <ScrollAnimation />
-          </Suspense>
-        </Canvas>
-      </div>
+            <Suspense fallback={<Loader />}>
+              <BelleModel />
+              <Clounds />
+              <MovingLight />
+              <Model />
+              <Skybox />
+              <ScrollAnimation />
+            </Suspense>
+          </Canvas>
+        </div>
 
-      <Buttons />
-      <div
-        ref={welcomeTextRef}
-        className='text-white fixed font-playfair flex flex-col justify-between items-center top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]'
-      >
-        <span className='text-center w-[50vw] mb-5 text-6xl font-bold'>
-          WELCOME TO THE WORLD OF TAPPAREUM
-        </span>
-        {/* <button className='bg-white text-gray-600 py-3 px-5 font-medium text-xl rounded-lg text-center'>
-          Explore
-        </button> */}
+        <Buttons />
+        <div
+          ref={welcomeTextRef}
+          className='text-white fixed font-playfair flex flex-col justify-between items-center top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]'
+        >
+          <span className='text-center w-[50vw] mb-5 text-6xl font-bold'>
+            WELCOME TO THE WORLD OF TAPPAREUM
+          </span>
+        </div>
       </div>
       <section data-scroll-section style={{ height: "1vh" }}></section>
       <section
@@ -196,7 +195,7 @@ function scene() {
         data-scroll-section
         style={{ height: "20vh" }}
       ></section>
-    </div>
+    </>
   );
 }
 

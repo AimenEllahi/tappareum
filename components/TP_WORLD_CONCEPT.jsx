@@ -10,13 +10,12 @@ import { gsap } from "gsap";
 import * as THREE from "three";
 import { useThree } from "@react-three/fiber";
 
-
 export function Model(props) {
   const { nodes, materials } = useGLTF("/Models/TP_WORLD_CONCEPT.gltf");
   const groupRef = useRef();
 
   const texture = new THREE.TextureLoader().load("/blue.png");
- 
+
   useEffect(() => {
     // Animation duration in seconds
     const duration = 2;
@@ -34,10 +33,19 @@ export function Model(props) {
     gsap.set(groupRef.current.rotation, initialRot);
 
     // Animate to the target position and rotation
-    gsap.to(groupRef.current.position, { x: targetPos.x, y: targetPos.y, z: targetPos.z, duration });
-    gsap.to(groupRef.current.rotation, { x: targetRot.x, y: targetRot.y, z: targetRot.z, duration });
+    gsap.to(groupRef.current.position, {
+      x: targetPos.x,
+      y: targetPos.y,
+      z: targetPos.z,
+      duration,
+    });
+    gsap.to(groupRef.current.rotation, {
+      x: targetRot.x,
+      y: targetRot.y,
+      z: targetRot.z,
+      duration,
+    });
   }, []);
-
 
   // const { pos, rot } = useControls("buildings", {
   //   pos: {
@@ -47,13 +55,9 @@ export function Model(props) {
   //   rot: { value: [0, 0, 0], step: 0.01 },
   // });
 
- 
   return (
-    <group {...props}  ref={groupRef} dispose={null} >
-      <PresentationControls  
-            enabled={true}
-            polar={[0, 0]}
-        >
+    <group {...props} ref={groupRef} dispose={null}>
+      <PresentationControls enabled={true} polar={[0, 0]}>
         <group position={[-0.089, 0.081, 0]}>
           <mesh
             geometry={nodes["Land-green"].geometry}
@@ -109,17 +113,20 @@ export function Model(props) {
           />
 
           <group>
-          <sprite position={[0.26,0.7700000000000005,0.9200000000000004]} scale={0.03}>
-          <spriteMaterial attach="material" map={texture} />
-          </sprite>
-          <mesh
-            name="tag2"
-            geometry={nodes.HANDCOCK.geometry}
-            material={materials.wit}
-            position={[0.177, 0.326, 1]}
-          />
+            <sprite
+              position={[0.26, 0.7700000000000005, 0.9200000000000004]}
+              scale={0.03}
+            >
+              <spriteMaterial attach='material' map={texture} />
+            </sprite>
+            <mesh
+              name='tag2'
+              geometry={nodes.HANDCOCK.geometry}
+              material={materials.wit}
+              position={[0.177, 0.326, 1]}
+            />
           </group>
-          
+
           <mesh
             geometry={nodes.jaker_10.geometry}
             material={materials.wit}
@@ -161,15 +168,14 @@ export function Model(props) {
           />
 
           <group>
-          <sprite position={[-0.45,0.65, 0.2]} scale={0.03}  >
-          <spriteMaterial attach="material" map={texture} />
-          </sprite>
-          <mesh
-            name="tag1"
-            geometry={nodes.bruce_4.geometry}
-            material={materials.wit}
-            position={[0.402, -0.228, 0.358]}
-            
+            <sprite position={[-0.45, 0.65, 0.2]} scale={0.03}>
+              <spriteMaterial attach='material' map={texture} />
+            </sprite>
+            <mesh
+              name='tag1'
+              geometry={nodes.bruce_4.geometry}
+              material={materials.wit}
+              position={[0.402, -0.228, 0.358]}
             />
           </group>
 
@@ -433,15 +439,20 @@ export function Model(props) {
           />
 
           <group>
-          <sprite position={[0.7300000000000003,0.5400000000000003,0.20999999999999984]} scale={0.04}>
-          <spriteMaterial attach="material" map={texture} />
-          </sprite>
-          <mesh
-            name="tag4"
-            geometry={nodes.all_glass.geometry}
-            material={materials.wit}
-            position={[0.168, 0.338, 0.324]}
-          />
+            <sprite
+              position={[
+                0.7300000000000003, 0.5400000000000003, 0.20999999999999984,
+              ]}
+              scale={0.04}
+            >
+              <spriteMaterial attach='material' map={texture} />
+            </sprite>
+            <mesh
+              name='tag4'
+              geometry={nodes.all_glass.geometry}
+              material={materials.wit}
+              position={[0.168, 0.338, 0.324]}
+            />
           </group>
 
           <mesh
@@ -461,14 +472,19 @@ export function Model(props) {
           />
 
           <group>
-          <sprite position={[-0.30999999999999983,0.8100000000000005,-0.5900000000000001]} scale={0.03}>
-          <spriteMaterial attach="material" map={texture} />
-          </sprite>
-          <mesh
-            name="tag3"
-            geometry={nodes.CHRYSLER_.geometry}
-            material={materials.wit}
-            position={[-0.303, 0.33, -0.614]}
+            <sprite
+              position={[
+                -0.30999999999999983, 0.8100000000000005, -0.5900000000000001,
+              ]}
+              scale={0.03}
+            >
+              <spriteMaterial attach='material' map={texture} />
+            </sprite>
+            <mesh
+              name='tag3'
+              geometry={nodes.CHRYSLER_.geometry}
+              material={materials.wit}
+              position={[-0.303, 0.33, -0.614]}
             />
           </group>
 
@@ -480,17 +496,22 @@ export function Model(props) {
           />
 
           <group>
-          <sprite position={[1.2200000000000006,0.5500000000000003,0.45999999999999996]} scale={0.04}>
-          <spriteMaterial attach="material" map={texture} />
-          </sprite>
-          <mesh
-            name="tag5"
-            geometry={nodes.TALL_IN_BK.geometry}
-            material={nodes.TALL_IN_BK.material}
-            position={[1.345, 0.269, 0.479]}
-          />
+            <sprite
+              position={[
+                1.2200000000000006, 0.5500000000000003, 0.45999999999999996,
+              ]}
+              scale={0.04}
+            >
+              <spriteMaterial attach='material' map={texture} />
+            </sprite>
+            <mesh
+              name='tag5'
+              geometry={nodes.TALL_IN_BK.geometry}
+              material={nodes.TALL_IN_BK.material}
+              position={[1.345, 0.269, 0.479]}
+            />
           </group>
-          
+
           <mesh
             geometry={nodes.TALL_IN_01.geometry}
             material={materials.wit}
