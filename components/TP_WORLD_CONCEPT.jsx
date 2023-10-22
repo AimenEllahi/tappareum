@@ -117,10 +117,10 @@ export function Model(props) {
               position={[0.26, 0.7700000000000005, 0.9200000000000004]}
               scale={0.03}
             >
-              <spriteMaterial attach='material' map={texture} />
+              <spriteMaterial attach="material" map={texture} />
             </sprite>
             <mesh
-              name='tag2'
+              name="tag2"
               geometry={nodes.HANDCOCK.geometry}
               material={materials.wit}
               position={[0.177, 0.326, 1]}
@@ -169,10 +169,10 @@ export function Model(props) {
 
           <group>
             <sprite position={[-0.45, 0.65, 0.2]} scale={0.03}>
-              <spriteMaterial attach='material' map={texture} />
+              <spriteMaterial attach="material" map={texture} />
             </sprite>
             <mesh
-              name='tag1'
+              name="tag1"
               geometry={nodes.bruce_4.geometry}
               material={materials.wit}
               position={[0.402, -0.228, 0.358]}
@@ -445,10 +445,10 @@ export function Model(props) {
               ]}
               scale={0.04}
             >
-              <spriteMaterial attach='material' map={texture} />
+              <spriteMaterial attach="material" map={texture} />
             </sprite>
             <mesh
-              name='tag4'
+              name="tag4"
               geometry={nodes.all_glass.geometry}
               material={materials.wit}
               position={[0.168, 0.338, 0.324]}
@@ -478,10 +478,10 @@ export function Model(props) {
               ]}
               scale={0.03}
             >
-              <spriteMaterial attach='material' map={texture} />
+              <spriteMaterial attach="material" map={texture} />
             </sprite>
             <mesh
-              name='tag3'
+              name="tag3"
               geometry={nodes.CHRYSLER_.geometry}
               material={materials.wit}
               position={[-0.303, 0.33, -0.614]}
@@ -502,10 +502,10 @@ export function Model(props) {
               ]}
               scale={0.04}
             >
-              <spriteMaterial attach='material' map={texture} />
+              <spriteMaterial attach="material" map={texture} />
             </sprite>
             <mesh
-              name='tag5'
+              name="tag5"
               geometry={nodes.TALL_IN_BK.geometry}
               material={nodes.TALL_IN_BK.material}
               position={[1.345, 0.269, 0.479]}

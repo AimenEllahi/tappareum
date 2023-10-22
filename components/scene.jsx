@@ -15,7 +15,7 @@ import {
 } from "@react-three/drei";
 // import { LayerMaterial, Color, Depth } from 'lamina'
 import * as THREE from "three";
-import { Model } from "./TP_WORLD_CONCEPT";
+import { Model } from "./TP_WORLD";
 import { gsap } from "gsap";
 import Buttons from "./buttons";
 import ScrollAnimation from "./ScrollAnimation";
@@ -23,7 +23,7 @@ import ScrollAnimation from "./ScrollAnimation";
 const Loader = () => {
   const { progress } = useProgress();
   return (
-    <Html className='text-xl mt-20 w-20' center>
+    <Html className="text-xl mt-20 w-20" center>
       {progress} %
     </Html>
   );
@@ -45,7 +45,7 @@ const MovingLight = () => {
     }
   });
 
-  return <pointLight ref={lightRef} intensity={1} color='white' />;
+  return <pointLight ref={lightRef} intensity={1} color="white" />;
 };
 
 const BelleModel = () => {
@@ -162,14 +162,14 @@ function scene() {
   }, []);
   return (
     <>
-      <div className='h-screen w-[80vw] z-30 relative'>
-        <div className='fixed w-screen h-screen  top-0 overflow-x-hidden'>
+      <div className="h-screen w-[80vw] z-30 relative">
+        <div className="fixed w-screen h-screen  top-0 overflow-x-hidden">
           <Canvas camera={{ fov: 75 }}>
-            <Environment preset='sunset' />
+            <Environment preset="sunset" />
             <pointLight position={[0, 0, 0]} intensity={1} />
 
             <Suspense fallback={<Loader />}>
-              <BelleModel />
+              {/* <BelleModel /> */}
               <Clounds />
               <MovingLight />
               <Model />
@@ -182,16 +182,16 @@ function scene() {
         <Buttons />
         <div
           ref={welcomeTextRef}
-          className='text-white fixed font-playfair flex flex-col justify-between items-center top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]'
+          className="text-white fixed font-playfair flex flex-col justify-between items-center top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]"
         >
-          <span className='text-center w-[50vw] mb-5 text-6xl font-bold'>
+          <span className="text-center w-[50vw] mb-5 text-6xl font-bold">
             WELCOME TO THE WORLD OF TAPPAREUM
           </span>
         </div>
       </div>
       <section data-scroll-section style={{ height: "1vh" }}></section>
       <section
-        className='trigger'
+        className="trigger"
         data-scroll-section
         style={{ height: "20vh" }}
       ></section>
